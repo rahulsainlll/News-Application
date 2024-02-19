@@ -20,7 +20,7 @@ This is the backend for a simple blog application built using Node.js, Express, 
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/blog-application-backend.git
+   https://github.com/rahulsainlll/Blog-Application-Backend.git
 
 2. Install dependencies:
    ```bash
