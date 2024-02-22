@@ -1,4 +1,4 @@
-# Blog Application Backend
+# News Application Backend
 
 This is the backend for a simple blog application built using Node.js, Express, and MongoDB. It provides RESTful API endpoints for managing blog posts and user authentication.
 
@@ -20,11 +20,11 @@ This is the backend for a simple blog application built using Node.js, Express, 
 
 1. Clone the repository:
    ```bash
-   https://github.com/rahulsainlll/Blog-Application-Backend.git
+   https://github.com/rahulsainlll/News-Application-Backend-API.git
 
 2. Install dependencies:
    ```bash
-   cd blog-application-backend
+   cd News-Application-Backend-API
    npm install
 
 3. Set up environment variables:
@@ -42,11 +42,11 @@ This is the backend for a simple blog application built using Node.js, Express, 
 
 ## API Endpoints
 
-- **GET /api/posts:** Fetch all blog posts.  
-- **GET /api/posts/:id**: Fetch a specific blog post by ID.  
-- **POST /api/posts:** Create a new blog post.  
-- **PUT /api/posts/:id:** Update an existing blog post by ID.  
-- **DELETE /api/posts/:id:** Delete a blog post by ID.
+- **GET /api/posts:** Fetch all news posts.  
+- **GET /api/posts/:id**: Fetch a specific news post by ID.  
+- **POST /api/posts:** Create a new news post.  
+- **PUT /api/posts/:id:** Update an existing news post by ID.  
+- **DELETE /api/posts/:id:** Delete a news post by ID.
 
 ## Contributing
 
