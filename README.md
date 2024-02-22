@@ -20,11 +20,11 @@ This is the backend for a simple blog application built using Node.js, Express, 
 
 1. Clone the repository:
    ```bash
-   https://github.com/rahulsainlll/Blog-Application-Backend.git
+   https://github.com/rahulsainlll/News-Application-Backend-API.git
 
 2. Install dependencies:
    ```bash
-   cd blog-application-backend
+   cd News-Application-Backend-API
    npm install
 
 3. Set up environment variables:
