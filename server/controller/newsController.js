@@ -1,8 +1,8 @@
 
-const test = async (req, res) => {
+const getNews = async (req, res) => {
   res.send("Its working");
 };
 
 module.exports = {
-  test,
+  getNews,
 };

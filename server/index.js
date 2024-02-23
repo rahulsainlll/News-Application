@@ -14,6 +14,7 @@ mongoose
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+//routes
 app.get("/", require("./routes/newsRoutes"));
 
 app.listen(process.env.PORT, (req, res) => {
