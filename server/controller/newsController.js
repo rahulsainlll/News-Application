@@ -6,3 +6,5 @@ const getNews = async (req, res) => {
 module.exports = {
   getNews,
 };
+
+
