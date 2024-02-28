@@ -1,7 +1,7 @@
 const newsModel = require("../model/newsSchema");
 
 const getNews = async (req, res) => {
-  const allNews = news.find();
+  const allNews = await newsModel.find();
 
   if (!allNews) {
     return res.json({
@@ -46,7 +46,6 @@ const postNews = async (req, res) => {
     });
 
     return res.json(post);
-
   } catch (err) {
     console.log("Error while posting news:", err);
     return res.json({
@@ -56,11 +55,30 @@ const postNews = async (req, res) => {
 };
 
 const updateNewsById = async (req, res) => {
-  res.send("Its working");
+  const news = await newsModel.findById(req.params.id);
+  const { title, description } = req.body;
+
+  if (news.title !== title) {
+    news.title = title;
+  }
+
+  if (news.description !== description) {
+    news.description = description;
+  }
+
+  news.save().then(() => console.log("updated"));
+  res.json(news);
 };
 
 const deleteNewsById = async (req, res) => {
-  res.send("Its working");
+  const deleteNews = await newsModel.findOneAndDelete({ _id: req.params.id });
+
+  if (!deleteNews) {
+    return res.json({ error: "Failed to delete news" });
+  } else {
+    console.log("Successful deletion");
+  }
+  res.json({ success: "Successful deletion" });
 };
 
 module.exports = {
