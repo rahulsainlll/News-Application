@@ -19,11 +19,15 @@ const {
   deleteNewsById,
   registerUser,
   loginUser,
+  getProfile,
+  logout,
 } = require("../controllers/newsController");
 
 
 router.post("/register", registerUser);
 router.post("/login", loginUser);
+router.get("/profile", getProfile);
+router.post("/logout", logout);
 router.get("/news", getNews);
 router.get("/news/:id", getNewsById);
 router.post("/news", postNews);

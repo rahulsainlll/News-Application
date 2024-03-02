@@ -78,6 +78,24 @@ const loginUser = async (req, res) => {
   }
 };
 
+// profile endpoint
+const getProfile = (req, res) => {
+  const { token } = req.cookies;
+  if (token) {
+    jwt.verify(token, process.env.JWT_Secret, {}, (err, user) => {
+      if (err) throw err;
+      res.json(user);
+    });
+  } else {
+    res.json(null);
+  }
+};
+
+// logout endpoint
+const logout = (req, res) => {
+  res.cookie("token", "").json("ok");
+};
+
 // get all news endpoint
 const getNews = async (req, res) => {
   const allNews = await newsModel.find();
@@ -167,6 +185,8 @@ const deleteNewsById = async (req, res) => {
 module.exports = {
   loginUser,
   registerUser,
+  getProfile,
+  logout,
   getNews,
   getNewsById,
   postNews,
