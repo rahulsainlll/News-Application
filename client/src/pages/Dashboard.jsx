@@ -1,6 +1,10 @@
 import { useState } from "react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
+import { toast } from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import axios from "axios";
 
 const modules = {
   toolbar: [
@@ -39,24 +43,36 @@ export default function Dashboard() {
 
   async function createPost(e) {
     e.preventDefault();
+
+    if (!title || !summary || !content) {
+      toast.error("Please fill in all required fields.");
+      return;
+    }
+
+     if (!files || files.length === 0) {
+       toast.error("Please select a file.");
+       return;
+     }
+
     const data = new FormData();
-    data.set("title", title);
-    data.set("summary", summary);
-    data.set("content", content);
-    data.set("file", files[0]);
-    console.log(files);
+    data.append("title", title);
+    data.append("summary", summary);
+    data.append("content", content);
+    data.append("file", files[0]);
+
+    console.log(data.get("title"));
 
     try {
-      const { data } = await axios.post("/news", {
-        data,
-      });
+      const { data: responseData } = await axios.post("/news", data);
 
-      if (data.error) {
-        toast.error(data.error);
+      if (responseData.error) {
+        toast.error(responseData.error);
       } else {
-        setData({});
-        toast.success("Register Succesful. Welcome!");
-        navigate("/login");
+        setTitle("");
+        setSummary("");
+        setContent("");
+        setFiles("");
+        toast.success("Post created successfully.");
       }
     } catch (error) {
       console.log(error);
@@ -67,13 +83,13 @@ export default function Dashboard() {
     <form onSubmit={createPost}>
       <h1>Dashboard 👋</h1>
       <input
-        type="title"
+        type="text"
         placeholder="Title"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
       />
       <input
-        type="summary"
+        type="text"
         placeholder="Enter summary..."
         value={summary}
         onChange={(e) => setSummary(e.target.value)}

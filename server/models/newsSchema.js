@@ -3,7 +3,9 @@ const mongoose = require("mongoose");
 const newsSchema = new mongoose.Schema(
   {
     title: String,
-    description: String,
+    summary: String,
+    content: String,
+    cover: String,
   },
   {
     timestamps: true,

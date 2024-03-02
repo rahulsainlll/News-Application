@@ -1,6 +1,8 @@
 const dotenv = require("dotenv").config();
 const express = require("express");
 const router = express.Router();
+const multer = require("multer");
+const upload = multer({ dest: "uploads/" });
 const cors = require("cors");
 
 // middlware
@@ -29,11 +31,12 @@ router.post("/login", loginUser);
 router.get("/profile", getProfile);
 router.post("/logout", logout);
 router.get("/news", getNews);
-router.get("/news/:id", getNewsById);
-router.post("/news", postNews);
+router.get("/news/:id", getNewsById); 
+router.post("/news", upload.single("file"), postNews);
 router.put("/news/:id", updateNewsById);
 router.delete("/news/:id", deleteNewsById);
 
 module.exports = router;
 
 
+ 

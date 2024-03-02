@@ -2,6 +2,7 @@ const newsModel = require("../models/newsSchema");
 const { UserModel } = require("../models/user");
 const { hashPassword, comparePassword } = require("../helpers/auth");
 const jwt = require("jsonwebtoken");
+const fs = require("fs");
 
 // register endpoints
 const registerUser = async (req, res) => {
@@ -98,7 +99,7 @@ const logout = (req, res) => {
 
 // get all news endpoint
 const getNews = async (req, res) => {
-  const allNews = await newsModel.find();
+  const allNews = await newsModel.find().sort({ createdAt: -1 }).limit(10);
 
   if (!allNews) {
     return res.json({
@@ -125,7 +126,13 @@ const getNewsById = async (req, res) => {
 // post news endpoint
 const postNews = async (req, res) => {
   try {
-    const { title, description } = req.body;
+    const { originalname, path } = req.file;
+    const parts = originalname.split(".");
+    const ext = parts[parts.length - 1];
+    const newPath = path + "." + ext;
+    fs.renameSync(path, newPath);
+
+    const { title, summary, content } = req.body;
 
     if (!title) {
       return res.json({
@@ -133,15 +140,23 @@ const postNews = async (req, res) => {
       });
     }
 
-    if (!description) {
+    if (!summary) {
       return res.json({
-        error: "description is required",
+        error: "summary is required",
+      });
+    }
+
+    if (!content) {
+      return res.json({
+        error: "summary is required",
       });
     }
 
     const post = await newsModel.create({
       title: title,
-      description: description,
+      summary: summary,
+      content: content,
+      cover: newPath,
     });
 
     return res.json(post);
