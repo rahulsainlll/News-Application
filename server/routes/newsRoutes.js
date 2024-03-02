@@ -19,7 +19,7 @@ const {
   deleteNewsById,
   registerUser,
   loginUser,
-} = require("../controller/newsController");
+} = require("../controllers/newsController");
 
 
 router.post("/register", registerUser);
