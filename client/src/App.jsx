@@ -6,6 +6,11 @@ import IndexPage from "./pages/IndexPage.jsx";
 import LoginPage from "./pages/LoginPage.jsx";
 import RegisterPage from "./pages/RegisterPage.jsx";
 
+// Axios
+axios.defaults.baseURL = "http://localhost:8000";
+axios.defaults.withCredentials = true;
+
+
 function App() {
   return (
     <Routes>

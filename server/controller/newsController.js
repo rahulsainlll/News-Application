@@ -1,4 +1,7 @@
-const newsModel = require("../model/newsSchema");
+const newsModel = require("../models/newsSchema");
+const jwt = require("jsonwebtoken");
+
+
 
 const getNews = async (req, res) => {
   const allNews = await newsModel.find();
@@ -82,6 +85,8 @@ const deleteNewsById = async (req, res) => {
 };
 
 module.exports = {
+  loginUser,
+  registerUser,
   getNews,
   getNewsById,
   postNews,
