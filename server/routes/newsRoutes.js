@@ -17,7 +17,7 @@ const {
   getNews,
   getNewsById,
   postNews,
-  updateNewsById,
+  updateNews,
   deleteNewsById,
   registerUser,
   loginUser,
@@ -33,7 +33,7 @@ router.post("/logout", logout);
 router.get("/news", getNews);
 router.get("/news/:id", getNewsById); 
 router.post("/news", upload.single("file"), postNews);
-router.put("/news/:id", updateNewsById);
+router.put("/news",upload.single("file"), updateNews);
 router.delete("/news/:id", deleteNewsById);
 
 module.exports = router;

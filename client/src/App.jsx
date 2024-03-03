@@ -9,6 +9,7 @@ import RegisterPage from "./pages/RegisterPage.jsx";
 import { UserContextProvider } from "../context/userContext";
 import PostPage from "./pages/PostPage.jsx";
 import axios from "axios";
+import EditPost from "./pages/EditPost.jsx";
 
 // Axios
 axios.defaults.baseURL = "http://localhost:8000";
@@ -24,6 +25,7 @@ function App() {
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/dashboard" element={<Dashboard />}></Route>
           <Route path="/news/:id" element={<PostPage/>}></Route>
+          <Route path="/edit/:id" element={<EditPost/>}></Route>
         </Route>
       </Routes>
     </UserContextProvider>

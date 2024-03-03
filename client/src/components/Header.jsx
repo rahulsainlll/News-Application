@@ -1,16 +1,19 @@
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { UserContext } from "../../context/userContext";
+import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import axios from "axios";
 
 export default function Header() {
   const { user, setUser } = useContext(UserContext);
+  const navigate = useNavigate();
 
   function logout() {
     axios.post("/logout").then(() => {
       setUser(null);
     });
+    navigate('/');
     toast.success("Logout!");
   }
 

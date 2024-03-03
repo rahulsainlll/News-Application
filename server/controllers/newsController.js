@@ -169,32 +169,50 @@ const postNews = async (req, res) => {
 };
 
 // update news endpoint
-const updateNewsById = async (req, res) => {
-  const news = await newsModel.findById(req.params.id);
-  const { title, description } = req.body;
-
-  if (news.title !== title) {
-    news.title = title;
+const updateNews = async (req, res) => {
+  let newPath = null;
+  if (req.file) {
+    const { originalname, path } = req.file;
+    const parts = originalname.split(".");
+    const ext = parts[parts.length - 1];
+    newPath = path + "." + ext;
+    fs.renameSync(path, newPath);
   }
 
-  if (news.description !== description) {
-    news.description = description;
-  }
+  const { token } = req.cookies;
+  jwt.verify(token, process.env.JWT_Secret, {}, async (err, info) => {
+    if (err) {
+      console.error("Error verifying token:", err);
+      return res.status(401).json({ error: "Unauthorized" });
+    }
 
-  news.save().then(() => console.log("updated"));
-  res.json(news);
+    const { id, title, summary, content } = req.body;
+    const post = await newsModel.findById(id);
+    const postDoc = await newsModel.findByIdAndUpdate(id, {
+      title,
+      summary,
+      content,
+      cover: newPath ? newPath : post.cover,
+    });
+
+    res.json(postDoc);
+  });
 };
 
 // delete news endpoint
 const deleteNewsById = async (req, res) => {
-  const deleteNews = await newsModel.findOneAndDelete({ _id: req.params.id });
+  try {
+    const deleteNews = await newsModel.findOneAndDelete({ _id: req.params.id });
 
-  if (!deleteNews) {
-    return res.json({ error: "Failed to delete news" });
-  } else {
-    console.log("Successful deletion");
+    if (!deleteNews) {
+      return res.json({ error: "Failed to delete news" });
+    }
+
+    res.json({ success: "Successful deletion" });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ error: "Internal Server Error" });
   }
-  res.json({ success: "Successful deletion" });
 };
 
 module.exports = {
@@ -205,6 +223,6 @@ module.exports = {
   getNews,
   getNewsById,
   postNews,
-  updateNewsById,
+  updateNews,
   deleteNewsById,
 };

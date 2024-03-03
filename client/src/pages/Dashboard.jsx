@@ -5,35 +5,7 @@ import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import axios from "axios";
-
-const modules = {
-  toolbar: [
-    [{ header: [1, 2, false] }],
-    ["bold", "italic", "underline", "strike", "blockquote"],
-    [
-      { list: "ordered" },
-      { list: "bullet" },
-      { indent: "-1" },
-      { indent: "+1" },
-    ],
-    ["link", "image"],
-    ["clean"],
-  ],
-};
-
-const formats = [
-  "header",
-  "bold",
-  "italic",
-  "underline",
-  "strike",
-  "blockquote",
-  "list",
-  "bullet",
-  "indent",
-  "link",
-  "image",
-];
+import Editor from "../components/Editor";
 
 export default function Dashboard() {
   const [title, setTitle] = useState("");
@@ -49,10 +21,10 @@ export default function Dashboard() {
       return;
     }
 
-     if (!files || files.length === 0) {
-       toast.error("Please select a file.");
-       return;
-     }
+    if (!files || files.length === 0) {
+      toast.error("Please select a file.");
+      return;
+    }
 
     const data = new FormData();
     data.append("title", title);
@@ -95,19 +67,16 @@ export default function Dashboard() {
         onChange={(e) => setSummary(e.target.value)}
       />
       <input type="file" onChange={(e) => setFiles(e.target.files)} />
-      <ReactQuill
-        value={content}
-        onChange={(newValue) => setContent(newValue)}
-        formats={formats}
-        modules={modules}
-      />
+
+      <Editor value={content} onChange={setContent} />
+
       <button
         style={{
           marginTop: "10px",
           fontSize: "1.1rem",
         }}
       >
-        Post
+        Create Post
       </button>
     </form>
   );
