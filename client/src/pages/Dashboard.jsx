@@ -1,5 +1,5 @@
 import { useState } from "react";
-import ReactQuill from "react-quill";
+import ReactQuill from "react-quill"; 
 import "react-quill/dist/quill.snow.css";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
@@ -8,6 +8,7 @@ import axios from "axios";
 import Editor from "../components/Editor";
 
 export default function Dashboard() {
+  const [type, setType] = useState("");
   const [title, setTitle] = useState("");
   const [summary, setSummary] = useState("");
   const [content, setContent] = useState("");
@@ -27,12 +28,11 @@ export default function Dashboard() {
     }
 
     const data = new FormData();
+    data.append("type", type);
     data.append("title", title);
     data.append("summary", summary);
     data.append("content", content);
     data.append("file", files[0]);
-
-    console.log(data.get("title"));
 
     try {
       const { data: responseData } = await axios.post("/news", data);
@@ -54,6 +54,28 @@ export default function Dashboard() {
   return (
     <form onSubmit={createPost}>
       <h1>Dashboard 👋</h1>
+
+      <select
+        value={type}
+        onChange={(e) => setType(e.target.value)}
+        style={{
+          marginBottom: "10px",
+          padding: "10px",
+          borderRadius: "5px",
+          border: "1px solid #ccc",
+          boxSizing: "border-box",
+          fontSize: "1.1rem",
+        }}
+      >
+        <option value="None">None</option>
+        <option value="Latest">Latest</option>
+        <option value="India">India</option>
+        <option value="Entertainment">Entertainment</option>
+        <option value="Trending">Trending</option>
+        <option value="Tech">Tech</option>
+        <option value="Sports">Sports</option>
+      </select>
+
       <input
         type="text"
         placeholder="Title"
@@ -81,3 +103,4 @@ export default function Dashboard() {
     </form>
   );
 }
+

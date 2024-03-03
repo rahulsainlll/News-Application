@@ -12,9 +12,9 @@ export default function Post({ _id, title, summary, content, cover }) {
       <div className="texts">
         <Link to={`/news/${_id}`}>
           <h2>{title}</h2>
-        </Link>
+        </Link> 
 
-        <p className="summary">{summary}</p>
+        {/* <p className="summary">{summary}</p> */}
       </div>
     </div>
   );

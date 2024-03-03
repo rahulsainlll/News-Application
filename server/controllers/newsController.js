@@ -97,6 +97,22 @@ const logout = (req, res) => {
   res.cookie("token", "").json("ok");
 };
 
+// get news by type endpoint
+const getNewsByType = async (req, res) => {
+  const { type } = req.params;
+  const query = type ? { type: type } : {};
+
+  const allNews = await newsModel.find(query).sort({ createdAt: -1 }).limit(10);
+
+  if (!allNews) {
+    return res.json({
+      error: "No post found",
+    });
+  }
+
+  res.json(allNews);
+};
+
 // get all news endpoint
 const getNews = async (req, res) => {
   const allNews = await newsModel.find().sort({ createdAt: -1 }).limit(10);
@@ -132,7 +148,7 @@ const postNews = async (req, res) => {
     const newPath = path + "." + ext;
     fs.renameSync(path, newPath);
 
-    const { title, summary, content } = req.body;
+    const { type, title, summary, content } = req.body;
 
     if (!title) {
       return res.json({
@@ -153,6 +169,7 @@ const postNews = async (req, res) => {
     }
 
     const post = await newsModel.create({
+      type: type,
       title: title,
       summary: summary,
       content: content,
@@ -221,6 +238,7 @@ module.exports = {
   getProfile,
   logout,
   getNews,
+  getNewsByType,
   getNewsById,
   postNews,
   updateNews,
