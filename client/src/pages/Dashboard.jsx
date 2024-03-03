@@ -1,5 +1,5 @@
 import { useState } from "react";
-import ReactQuill from "react-quill"; 
+import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
@@ -65,6 +65,8 @@ export default function Dashboard() {
           border: "1px solid #ccc",
           boxSizing: "border-box",
           fontSize: "1.1rem",
+          background: "black",
+          color: "white",
         }}
       >
         <option value="None">None</option>
@@ -103,4 +105,3 @@ export default function Dashboard() {
     </form>
   );
 }
-

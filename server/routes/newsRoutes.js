@@ -33,7 +33,7 @@ router.post("/login", loginUser);
 router.get("/profile", getProfile);
 
 router.get("/news", getNews);
-router.get("/news/type/:type", getNewsByType);
+router.get("/news/type/:type/:how", getNewsByType);
 router.get("/news/:id", getNewsById); 
 
 router.post("/news", upload.single("file"), postNews);

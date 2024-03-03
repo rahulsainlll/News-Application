@@ -102,7 +102,7 @@ const getNewsByType = async (req, res) => {
   const { type } = req.params;
   const query = type ? { type: type } : {};
 
-  const allNews = await newsModel.find(query).sort({ createdAt: -1 }).limit(10);
+  const allNews = await newsModel.find(query).sort({ createdAt: -1 }).limit(req.params.how);
 
   if (!allNews) {
     return res.json({
