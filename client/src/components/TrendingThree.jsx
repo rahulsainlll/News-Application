@@ -8,7 +8,7 @@ export default function TrendingThree() {
 
   useEffect(() => {
     axios
-      .get("/news/type/Trending/3")
+      .get("/news/type/Trending/4")
       .then((response) => {
         setPosts(response.data);
       })

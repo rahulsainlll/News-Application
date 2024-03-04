@@ -29,6 +29,8 @@ export default function BigThree() {
 
   return (
     <div className="big-three-container">
+      <img src="src/assets/SidebarAd.png" alt="Advertisment" />
+
       <h3>India News</h3>
       {india.map((post) => (
         <Link to={`/news/${post._id}`} key={post._id}>

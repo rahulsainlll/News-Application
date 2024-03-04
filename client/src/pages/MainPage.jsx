@@ -9,7 +9,10 @@ export default function IndexPage() {
   return (
     <div className="gridContainer">
       <div className="index-page">
-        <LatestOne />
+        <div>
+          <LatestOne />
+          <LatestOne />
+        </div>
         <TrendingThree />
         <BigThree />
       </div>

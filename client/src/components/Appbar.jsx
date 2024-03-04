@@ -4,20 +4,36 @@ import { Link } from "react-router-dom";
 export default function Appbar() {
   return (
     <div className="topHeader">
-      <div className="header-links">
+      <div>
         <Link
           style={{
-            marginRight: "5%",
+            marginLeft: "10%",
+            fontSize: "0.9rem",
             textDecoration: "none",
             color: "#ffffff",
           }}
-          to="/dashboard"
+          to="/AdDashboard"
+        >
+          SHAILY
+        </Link>
+      </div>
+
+      {/* -------------------------------------------------------------------------------------------------------- */}
+
+      <div className="header-links">
+        <Link
+          style={{
+            marginRight: "10%",
+            textDecoration: "none",
+            color: "#ffffff",
+          }}
+          to="/AdDashboard"
         >
           HOME
         </Link>
         <Link
           style={{
-            marginRight: "5%",
+            marginRight: "10%",
             textDecoration: "none",
             color: "#ffffff",
           }}
@@ -25,7 +41,7 @@ export default function Appbar() {
         >
           LATEST
         </Link>
-        <Link
+        {/* <Link
           style={{
             marginRight: "5%",
             textDecoration: "none",
@@ -54,28 +70,42 @@ export default function Appbar() {
           to="/dashboard"
         >
           TRENDING
-        </Link>
+        </Link> */}
 
         <Link
           style={{
-            marginRight: "5%",
+            marginRight: "10%",
             textDecoration: "none",
             color: "#ffffff",
           }}
           to="/dashboard"
         >
-          TECH
+          TRENDING
         </Link>
 
         <Link
           style={{
-            marginRight: "5%",
+            marginRight: "10%",
             textDecoration: "none",
             color: "#ffffff",
           }}
           to="/dashboard"
         >
-          SPORTS
+          TAYLOR
+        </Link>
+      </div>
+      {/* -------------------------------------------------------------------------------------------------------- */}
+      <div>
+        <Link
+          style={{
+            marginRight: "10%",
+            fontSize: "0.9rem",
+            textDecoration: "none",
+            color: "#ffffff",
+          }}
+          to="/AdDashboard"
+        >
+          Twitter
         </Link>
       </div>
     </div>

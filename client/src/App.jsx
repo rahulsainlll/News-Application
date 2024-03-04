@@ -11,6 +11,8 @@ import PostPage from "./pages/PostPage.jsx";
 import axios from "axios";
 import EditPost from "./pages/EditPost.jsx";
 import Appbar from "./components/Appbar.jsx";
+import AdDashboard from "./pages/AdDashboard.jsx";
+
 
 // Axios
 axios.defaults.baseURL = "http://localhost:8000";
@@ -26,6 +28,7 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/dashboard" element={<Dashboard />}></Route>
+          <Route path="/AdDashboard" element={<AdDashboard />}></Route>
           <Route path="/news/:id" element={<PostPage />}></Route>
           <Route path="/edit/:id" element={<EditPost />}></Route>
         </Route>

@@ -21,9 +21,10 @@ export default function Header() {
   return (
     <div>
       <Appbar />
+      <img src="src/assets/AD.png" />
       <header>
         <Link to="/" className="logo">
-          The Times Insight
+          Shaily
         </Link>
 
         <nav>
@@ -42,7 +43,6 @@ export default function Header() {
           )}
         </nav>
       </header>
-
       <div className="header-line"></div>
     </div>
   );

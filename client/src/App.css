@@ -11,9 +11,9 @@ img {
   border-radius: 1%;
 }
 
-img {
+/* img {
   transition: transform 0.5s;
-}
+} */
 
 /* img:hover {
   transform: scale(1.2);
@@ -50,17 +50,18 @@ header nav {
 }
 
 .topHeader {
-  border: 2px solid #a13732;
-  background: #a13732;
+  border: 2px solid #c98895;
+  background: #c98895;
   height: 30px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   color: #ddd;
+  margin-bottom: 20px;
 }
 
 .header-links {
-  font-size: 1rem;
+  /* font-size: 1rem; */
   font-size: 0.8rem;
 }
 
