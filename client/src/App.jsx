@@ -2,7 +2,7 @@ import "./App.css";
 import Layout from "./components/Layout.jsx";
 import Post from "./components/Post.jsx";
 import { Routes, Route } from "react-router-dom";
-import IndexPage from "./pages/IndexPage.jsx";
+import MainPage from "./pages/MainPage.jsx";
 import LoginPage from "./pages/LoginPage.jsx";
 import Dashboard from "./pages/Dashboard.jsx";
 import RegisterPage from "./pages/RegisterPage.jsx";
@@ -19,10 +19,10 @@ axios.defaults.withCredentials = true;
 function App() {
   return (
     <UserContextProvider>
-      {/* <Appbar/> */}
+      {/* <Appbar /> */}
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route index element={<IndexPage />} />
+          <Route index element={<MainPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/dashboard" element={<Dashboard />}></Route>

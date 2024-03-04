@@ -3,12 +3,12 @@ import Post from "./Post";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-export default function TrendingFour() {
+export default function TrendingThree() {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
     axios
-      .get("/news/type/Trending/4")
+      .get("/news/type/Trending/3")
       .then((response) => {
         setPosts(response.data);
       })
@@ -18,7 +18,7 @@ export default function TrendingFour() {
   }, []);
 
   return (
-    <div className="grid-container">
+    <div className="trending-container">
       {posts.map((post) => (
         <Link to={`/news/${post._id}`} key={post._id}>
           <div className="image">

@@ -18,7 +18,7 @@ export default function LatestOne() {
   }, []);
 
   return (
-    <div className="grid-container">
+    <div className="latestOne-container">
       {posts.map((post) => (
         <Link to={`/news/${post._id}`} key={post._id}>
           <div className="image">

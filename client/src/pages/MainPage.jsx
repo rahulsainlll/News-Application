@@ -1,23 +1,23 @@
 import React, { useEffect, useState } from "react";
-import Post from "../components/Post";
-import axios from "axios";
-import AllPost from "../components/AllPost";
 import LatestOne from "../components/LatestOne";
-import TrendingFour from "../components/TrendingFour";
+import TrendingThree from "../components/TrendingThree";
 import BigThree from "../components/BigThree";
-
-
-
+import MixFour from "../components/MixFour";
+import SportsFour from "../components/SportsFour";
 
 export default function IndexPage() {
   return (
-    <div>
+    <div className="gridContainer">
       <div className="index-page">
         <LatestOne />
-        <TrendingFour />
+        <TrendingThree />
         <BigThree />
+      </div>
+
+      <div>
+        <MixFour />
+        <SportsFour />
       </div>
     </div>
   );
 }
-

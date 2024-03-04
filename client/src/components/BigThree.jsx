@@ -28,7 +28,7 @@ export default function BigThree() {
   }, []);
 
   return (
-    <div className="big-three-grid-container">
+    <div className="big-three-container">
       <h3>India News</h3>
       {india.map((post) => (
         <Link to={`/news/${post._id}`} key={post._id}>
