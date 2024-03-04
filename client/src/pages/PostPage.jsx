@@ -1,8 +1,8 @@
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { UserContext } from "../../context/userContext";
-import { Link } from "react-router-dom";
+import BigThree from "../components/BigThree";
 
 export default function PostPage() {
   const [postInfo, setPostInfo] = useState(null);
@@ -59,39 +59,10 @@ export default function PostPage() {
         />
       </div>
 
-      <div className="trendingNews">
-        <h2>Latest News 🔥</h2>
-        <div>
-          <img
-            src={`http://localhost:8000/uploads/62abdaf3a77ec45ef10d84ade7ca69dc.jpg`}
-            alt=""
-          />
-        </div>
+      
+        <BigThree />
+      
 
-        <div
-          className="content"
-          dangerouslySetInnerHTML={{ __html: postInfo.title }}
-        />
-
-        <h2>Trending News</h2>
-        <div>
-          <img src={`http://localhost:8000/${postInfo.cover}`} alt="" />
-        </div>
-
-        <div
-          className="content"
-          dangerouslySetInnerHTML={{ __html: postInfo.title }}
-        />
-        <h2>DON'T MISS</h2>
-        <div>
-          <img src={`http://localhost:8000/${postInfo.cover}`} alt="" />
-        </div>
-
-        <div
-          className="content"
-          dangerouslySetInnerHTML={{ __html: postInfo.title }}
-        />
-      </div>
     </div>
   );
 }
