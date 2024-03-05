@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { toast } from "react-hot-toast";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 export default function AdDashboard() {
   const [type, setType] = useState("");
@@ -26,7 +27,7 @@ export default function AdDashboard() {
     data.append("file", files[0]);
 
     try {
-      const { data: responseData } = await axios.post("/news/ad", data); 
+      const { data: responseData } = await axios.post("/news/ad", data);
 
       if (responseData.error) {
         toast.error(responseData.error);
@@ -43,7 +44,12 @@ export default function AdDashboard() {
 
   return (
     <form onSubmit={createPost}>
-      <h1>Advertisement Dashboard </h1>
+      <div className="dashboardNav">
+        <Link className="links" to="/Dashboard">
+          Add News
+        </Link>
+      </div>
+      <h1>Advertisement </h1>
 
       <select
         value={type}
@@ -58,8 +64,11 @@ export default function AdDashboard() {
           background: "black",
           color: "white",
         }}
+        required
       >
-        <option value="None">None</option>
+        <option value="" disabled>
+          Select an option
+        </option>
         <option value="Header">Header</option>
         <option value="RightSide">RightSide</option>
       </select>
@@ -78,7 +87,7 @@ export default function AdDashboard() {
           fontSize: "1.1rem",
         }}
       >
-        Create Post
+        Create AD
       </button>
     </form>
   );

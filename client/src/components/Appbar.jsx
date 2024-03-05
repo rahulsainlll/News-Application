@@ -93,7 +93,19 @@ export default function Appbar() {
         >
           TAYLOR
         </Link>
+
+        <Link
+          style={{
+            marginRight: "10%",
+            textDecoration: "none",
+            color: "#ffffff",
+          }}
+          to="/dashboard"
+        >
+          MORE 
+        </Link>
       </div>
+
       {/* -------------------------------------------------------------------------------------------------------- */}
       <div>
         <Link
@@ -111,5 +123,3 @@ export default function Appbar() {
     </div>
   );
 }
-
-

@@ -3,7 +3,7 @@ import LatestOne from "../components/LatestOne";
 import TrendingThree from "../components/TrendingThree";
 import BigThree from "../components/BigThree";
 import MixFour from "../components/MixFour";
-import SportsFour from "../components/SportsFour";
+import TaylorFour from "../components/TaylorFour";
 
 export default function IndexPage() {
   return (
@@ -17,9 +17,9 @@ export default function IndexPage() {
         <BigThree />
       </div>
 
-      <div>
+      <div className="Top-four">
         <MixFour />
-        <SportsFour />
+        <TaylorFour />
       </div>
     </div>
   );

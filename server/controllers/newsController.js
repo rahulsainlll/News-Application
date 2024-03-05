@@ -190,18 +190,16 @@ const postNews = async (req, res) => {
   }
 };
 
-
-
 // Post Ad
 const postAd = async (req, res) => {
   try {
-    const { originalname, path } = req.file;
-    const parts = originalname.split(".");
-    const ext = parts[parts.length - 1];
-    const newPath = path + "." + ext;
-    fs.renameSync(path, newPath);
-    
-    const { link } = req.body;
+     const { originalname, path } = req.file;
+     const parts = originalname.split(".");
+     const ext = parts[parts.length - 1];
+     const newPath = path + "." + ext;
+     fs.renameSync(path, newPath);
+
+    const { link, type } = req.body;
 
     if (!link) {
       return res.json({
@@ -211,16 +209,36 @@ const postAd = async (req, res) => {
 
     const ad = await adModel.create({
       link: link,
+      type: type,
       cover: newPath,
     });
 
     return res.json(ad);
   } catch (err) {
-     console.log("Error while posting ad:", err);
-     return res.json({
-       error: "Failed to post ad",
-     });
+    console.log("Error while posting ad:", err);
+    return res.json({
+      error: "Failed to post ad",
+    });
   }
+};
+
+// get ad by type endpoint
+const getAdByType = async (req, res) => {
+  const { type } = req.params;
+  const query = type ? { type: type } : {};
+
+  const allAds = await adModel
+    .find(query)
+    .sort({ createdAt: -1 })
+    .limit(req.params.how);
+
+  if (!allAds || allAds.length === 0) {
+    return res.json({
+      error: "No ad found",
+    });
+  }
+
+  res.json(allAds);
 };
 
 // update news endpoint
@@ -277,6 +295,7 @@ module.exports = {
   logout,
   getNews,
   getNewsByType,
+  getAdByType,
   getNewsById,
   postNews,
   postAd,

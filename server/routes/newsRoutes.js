@@ -16,6 +16,7 @@ router.use(
 const {
   getNews,
   getNewsByType,
+  getAdByType,
   getNewsById,
   postNews,
   postAd,
@@ -35,6 +36,7 @@ router.post("/login", loginUser);
 router.get("/profile", getProfile);
 router.get("/news", getNews);
 router.get("/news/type/:type/:how", getNewsByType);
+router.get("/news/ad/:type/:how", getAdByType);
 router.get("/news/:id", getNewsById); 
 
 router.post("/news", upload.single("file"), postNews);

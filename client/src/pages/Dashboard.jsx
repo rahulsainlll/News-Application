@@ -1,11 +1,9 @@
 import { useState } from "react";
-import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import { toast } from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
 import axios from "axios";
 import Editor from "../components/Editor";
+import { Link } from "react-router-dom";
 
 export default function Dashboard() {
   const [type, setType] = useState("");
@@ -53,7 +51,13 @@ export default function Dashboard() {
 
   return (
     <form onSubmit={createPost}>
-      <h1>Dashboard 👋</h1>
+      <div className="dashboardNav">
+        <Link className="links" to="/AdDashboard">
+          Add Advertisment
+        </Link>
+      </div>
+
+      <h1>Dashboard </h1>
 
       <select
         value={type}
@@ -68,11 +72,14 @@ export default function Dashboard() {
           background: "black",
           color: "white",
         }}
+        required
       >
-        <option value="None">None</option>
+        <option value="" disabled>
+          Select an option
+        </option>
         <option value="Latest">Latest</option>
         <option value="Trending">Trending</option>
-        <option value="Sports">Taylor</option>
+        <option value="Taylor">Taylor</option>
         <option value="Entertainment">Entertainment</option>
       </select>
 
@@ -98,7 +105,7 @@ export default function Dashboard() {
           fontSize: "1.1rem",
         }}
       >
-        Create Post
+        Create News
       </button>
     </form>
   );

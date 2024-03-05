@@ -227,14 +227,77 @@ a svg {
 .big-three-container a,
 .trending-container a,
 .latestOne-container a,
-.mix-four-container a {
+.taylor-four-container a
+ {
   text-decoration: none;
   color: inherit;
 }
 
 .mix-four-container {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: repeat(4, 1fr);
   gap: 20px;
-  /* margin-bottom: 50px; */
+}
+
+
+.taylor-four-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.taylor-image {
+  overflow: hidden;
+  width: 100%;
+  height: 70%;
+}
+
+.taylor-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease-in-out;
+}
+
+.card:hover .taylor-image img {
+  transform: scale(1.05);
+}
+
+.taylor-title {
+  padding: 10px;
+  background-color: #f0f0f0;
+  height: 30%;
+}
+
+
+
+
+.header-ad-container {
+  max-height: 100px;
+  overflow: hidden;
+  background-image: url(./assets/AD.png);
+  display: flex;
+  justify-content: center;
+}
+
+.header-ad-container img {
+  object-fit: cover;
+  object-position: center center;
+  width: 100%;
+  /* margin-top: ; */
+}
+
+.dashboardNav {
+  font-size: 0.9rem;
+}
+
+.dashboardNav a {
+  color: #888;
+  text-decoration: none;
 }

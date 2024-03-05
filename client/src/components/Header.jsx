@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import axios from "axios";
 import Appbar from "./Appbar";
+import HeaderAd from "./HeaderAD";
 
 export default function Header() {
   const { user, setUser } = useContext(UserContext);
@@ -21,7 +22,10 @@ export default function Header() {
   return (
     <div>
       <Appbar />
-      <img src="src/assets/AD.png" />
+      {/* <div style={{ height: "100px", overflow: "hidden" }}> */}
+      <HeaderAd />
+      {/* </div> */}
+
       <header>
         <Link to="/" className="logo">
           Shaily
@@ -30,7 +34,7 @@ export default function Header() {
         <nav>
           {user && (
             <>
-              <Link to="/dashboard">Create New Post</Link>
+              <Link to="/dashboard">Dashboard</Link>
               <a onClick={logout}>Logout</a>
             </>
           )}
