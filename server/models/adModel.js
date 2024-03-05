@@ -10,6 +10,6 @@ const adSchema = mongoose.Schema(
   }
 );
 
-const adModel = mongoose.model("AD", adSchema);
+const adModel = new mongoose.model("AD", adSchema);
 
 module.exports = adModel;

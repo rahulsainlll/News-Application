@@ -190,15 +190,17 @@ const postNews = async (req, res) => {
   }
 };
 
+
+
 // Post Ad
 const postAd = async (req, res) => {
   try {
     const { originalname, path } = req.file;
     const parts = originalname.split(".");
     const ext = parts[parts.length - 1];
-    const newPath = originalname + "." + ext;
+    const newPath = path + "." + ext;
     fs.renameSync(path, newPath);
-
+    
     const { link } = req.body;
 
     if (!link) {
