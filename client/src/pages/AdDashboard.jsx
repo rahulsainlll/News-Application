@@ -1,4 +1,4 @@
-import React, { useState } from "react"; 
+import React, { useState } from "react";
 import { toast } from "react-hot-toast";
 import axios from "axios";
 
@@ -26,7 +26,7 @@ export default function AdDashboard() {
     data.append("file", files[0]);
 
     try {
-      const { data: responseData } = await axios.post("/news/ad", data);
+      const { data: responseData } = await axios.post("/news/ad", data); 
 
       if (responseData.error) {
         toast.error(responseData.error);

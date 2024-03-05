@@ -18,6 +18,7 @@ const {
   getNewsByType,
   getNewsById,
   postNews,
+  postAd,
   updateNews,
   deleteNewsById,
   registerUser,
@@ -30,13 +31,14 @@ const {
 router.post("/register", registerUser);
 router.post("/logout", logout);
 router.post("/login", loginUser);
-router.get("/profile", getProfile);
 
+router.get("/profile", getProfile);
 router.get("/news", getNews);
 router.get("/news/type/:type/:how", getNewsByType);
 router.get("/news/:id", getNewsById); 
 
 router.post("/news", upload.single("file"), postNews);
+router.post("/news/ad", upload.single("file"), postAd);
 router.put("/news",upload.single("file"), updateNews);
 router.delete("/news/:id", deleteNewsById);
 

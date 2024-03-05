@@ -1,8 +1,10 @@
 const newsModel = require("../models/newsSchema");
+const adModel = require("../models/adModel");
 const { UserModel } = require("../models/user");
 const { hashPassword, comparePassword } = require("../helpers/auth");
 const jwt = require("jsonwebtoken");
 const fs = require("fs");
+const { error } = require("console");
 
 // register endpoints
 const registerUser = async (req, res) => {
@@ -102,7 +104,10 @@ const getNewsByType = async (req, res) => {
   const { type } = req.params;
   const query = type ? { type: type } : {};
 
-  const allNews = await newsModel.find(query).sort({ createdAt: -1 }).limit(req.params.how);
+  const allNews = await newsModel
+    .find(query)
+    .sort({ createdAt: -1 })
+    .limit(req.params.how);
 
   if (!allNews) {
     return res.json({
@@ -185,6 +190,37 @@ const postNews = async (req, res) => {
   }
 };
 
+// Post Ad
+const postAd = async (req, res) => {
+  try {
+    const { originalname, path } = req.file;
+    const parts = originalname.split(".");
+    const ext = parts[parts.length - 1];
+    const newPath = originalname + "." + ext;
+    fs.renameSync(path, newPath);
+
+    const { link } = req.body;
+
+    if (!link) {
+      return res.json({
+        error: "link is required",
+      });
+    }
+
+    const ad = await adModel.create({
+      link: link,
+      cover: newPath,
+    });
+
+    return res.json(ad);
+  } catch (err) {
+     console.log("Error while posting ad:", err);
+     return res.json({
+       error: "Failed to post ad",
+     });
+  }
+};
+
 // update news endpoint
 const updateNews = async (req, res) => {
   let newPath = null;
@@ -241,6 +277,7 @@ module.exports = {
   getNewsByType,
   getNewsById,
   postNews,
+  postAd,
   updateNews,
   deleteNewsById,
 };

@@ -71,11 +71,9 @@ export default function Dashboard() {
       >
         <option value="None">None</option>
         <option value="Latest">Latest</option>
-        <option value="India">India</option>
-        <option value="Entertainment">Entertainment</option>
         <option value="Trending">Trending</option>
-        <option value="Tech">Tech</option>
-        <option value="Sports">Sports</option>
+        <option value="Sports">Taylor</option>
+        <option value="Entertainment">Entertainment</option>
       </select>
 
       <input
