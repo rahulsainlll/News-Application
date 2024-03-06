@@ -12,6 +12,7 @@ import axios from "axios";
 import EditPost from "./pages/EditPost.jsx";
 import Appbar from "./components/Appbar.jsx";
 import AdDashboard from "./pages/AdDashboard.jsx";
+import LatestPage from "./pages/LatestPage.jsx";
 
 
 // Axios
@@ -29,6 +30,7 @@ function App() {
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/dashboard" element={<Dashboard />}></Route>
           <Route path="/AdDashboard" element={<AdDashboard />}></Route>
+          <Route path="/latest" element={<LatestPage />}></Route>
           <Route path="/news/:id" element={<PostPage />}></Route>
           <Route path="/edit/:id" element={<EditPost />}></Route>
         </Route>

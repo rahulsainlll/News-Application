@@ -12,7 +12,7 @@ export default function Appbar() {
             textDecoration: "none",
             color: "#ffffff",
           }}
-          to="/AdDashboard"
+          to="/"
         >
           SHAILY
         </Link>
@@ -27,7 +27,7 @@ export default function Appbar() {
             textDecoration: "none",
             color: "#ffffff",
           }}
-          to="/AdDashboard"
+          to="/"
         >
           HOME
         </Link>
@@ -37,7 +37,7 @@ export default function Appbar() {
             textDecoration: "none",
             color: "#ffffff",
           }}
-          to="/dashboard"
+          to="/latest"
         >
           LATEST
         </Link>

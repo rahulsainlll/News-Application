@@ -11,14 +11,6 @@ img {
   border-radius: 1%;
 }
 
-/* img {
-  transition: transform 0.5s;
-} */
-
-/* img:hover {
-  transform: scale(1.2);
-} */
-
 main {
   padding: 10px;
   max-width: 1200px;
@@ -176,17 +168,20 @@ div.post-page {
 
 div.post-page div.image,
 div.post div.image {
-  max-height: 400px;
+  height: 500px;
   overflow: hidden;
   background-color: #f9f5f5;
   display: flex;
+  justify-content: center;
 }
+
 
 div.post-page div.image img,
 div.post div.image img {
-  object-fit: cover;
+  /* object-fit: cover; */
   object-position: center center;
-  width: 100%;
+  /* width: 100%; */
+  
 }
 
 div.post-page a {
@@ -227,8 +222,7 @@ a svg {
 .big-three-container a,
 .trending-container a,
 .latestOne-container a,
-.taylor-four-container a
- {
+.taylor-four-container a {
   text-decoration: none;
   color: inherit;
 }
@@ -238,7 +232,6 @@ a svg {
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
 }
-
 
 .taylor-four-container {
   display: grid;
@@ -274,9 +267,6 @@ a svg {
   background-color: #f0f0f0;
   height: 30%;
 }
-
-
-
 
 .header-ad-container {
   max-height: 100px;
