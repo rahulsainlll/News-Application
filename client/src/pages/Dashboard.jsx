@@ -94,6 +94,7 @@ export default function Dashboard() {
         <option value="Taylor">Taylor</option>
         <option value="India">India</option>
         <option value="Tech">Tech</option>
+        <option value="Carousel">Carousel</option>
         <option value="Entertainment">Entertainment</option>
       </select>
 

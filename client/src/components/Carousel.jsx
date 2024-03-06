@@ -9,7 +9,7 @@ export default function Carousel() {
 
   useEffect(() => {
     axios
-      .get("/news/type/Latest/3")
+      .get("/news/type/Carousel/3")
       .then((response) => {
         setPosts(response.data);
       })
@@ -21,7 +21,7 @@ export default function Carousel() {
       setSlide((prevSlide) =>
         prevSlide === posts.length - 1 ? 0 : prevSlide + 1
       );
-    }, 2500);
+    }, 5000);
 
     return () => clearInterval(interval);
   }, [posts.length]);

@@ -20,11 +20,15 @@ export default function LatestOne() {
   return (
     <div className="latestOne-container">
       {posts.map((post) => (
-        <Link to={`/news/${post._id}`} key={post._id}>
-          <div className="image">
-            <img src={"http://localhost:8000/" + post.cover} alt={post.title} />
+        <Link to={`/news/${post._id}`} key={post._id} className="post-link">
+          <div className="post-container">
+            <img
+              src={"http://localhost:8000/" + post.cover}
+              alt={post.title}
+              className="post-image"
+            />
+            <h1 className="post-title">{post.title}</h1>
           </div>
-          <h1>{post.title}</h1>
         </Link>
       ))}
     </div>
