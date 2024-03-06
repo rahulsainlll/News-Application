@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Post from "./Post";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
@@ -42,34 +41,49 @@ export default function BigThree() {
     <div className="big-three-container">
       {ad.map((ad) => (
         <Link to={`${ad.link}`} target="_blank" key={ad._id}>
-          <div className="image">
-            <img src={"http://localhost:8000/" + ad.cover} alt="Advertisment" />
+          <div className="ad-container">
+            <img
+              src={"http://localhost:8000/" + ad.cover}
+              alt="Advertisement"
+            />
           </div>
           <hr />
         </Link>
       ))}
 
-      <h3>India News</h3>
-      {india.map((post) => (
-        <Link to={`/news/${post._id}`} key={post._id}>
-          <div className="image">
-            <img src={"http://localhost:8000/" + post.cover} alt={post.title} />
-          </div>
-          <p>{post.title}</p>
-          <hr />
-        </Link>
-      ))}
+      <div className="news-container">
+        <h3>India News</h3>
+        {india.map((post) => (
+          <Link to={`/news/${post._id}`} key={post._id}>
+            <div className="news-item">
+              <div className="big-3-image-container">
+                <img
+                  src={"http://localhost:8000/" + post.cover}
+                  alt={post.title}
+                />
+                <p>{post.title}</p>
+              </div>
+            </div>
+          </Link>
+        ))}
+      </div>
 
-      <h3>Tech News</h3>
-      {tech.map((post) => (
-        <Link to={`/news/${post._id}`} key={post._id}>
-          <div className="image">
-            <img src={"http://localhost:8000/" + post.cover} alt={post.title} />
-          </div>
-          <p>{post.title}</p>
-          <hr />
-        </Link>
-      ))}
+      <div className="news-container">
+        <h3>Tech News</h3>
+        {tech.map((post) => (
+          <Link to={`/news/${post._id}`} key={post._id}>
+            <div className="news-item">
+              <div className="big-3-image-container">
+                <img
+                  src={"http://localhost:8000/" + post.cover}
+                  alt={post.title}
+                />
+                <p>{post.title}</p>
+              </div>
+            </div>
+          </Link>
+        ))}
+      </div>
     </div>
   );
 }

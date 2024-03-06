@@ -19,7 +19,7 @@ export default function TaylorFour() {
 
   return (
     <div>
-      <h3>Taylor Swift</h3>
+      <h3 className="four-news-heading">Taylor Swift</h3>
       <div className="taylor-four-container">
         {taylor.map((post) => (
           <Link to={`/news/${post._id}`} key={post._id}>

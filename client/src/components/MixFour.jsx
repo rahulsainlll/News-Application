@@ -7,7 +7,7 @@ export default function MixFour() {
   const [india, setIndia] = useState([]);
   const [tech, setTech] = useState([]);
   const [enter, setEnter] = useState([]);
-//   const [tech, setTech] = useState([]);
+  //   const [tech, setTech] = useState([]);
 
   useEffect(() => {
     axios
@@ -36,7 +36,7 @@ export default function MixFour() {
       .catch((error) => {
         console.error("Error fetching data:", error);
       });
-      
+
     axios
       .get("/news/type/Tech/1")
       .then((response) => {
@@ -46,10 +46,10 @@ export default function MixFour() {
         console.error("Error fetching data:", error);
       });
   }, []);
-  
+
   return (
     <div>
-      <h3>Latest News</h3>
+      <h3 className="four-news-heading">Latest News</h3>
       <div className="mix-four-container">
         {tech.map((post) => (
           <Link to={`/news/${post._id}`} key={post._id}>

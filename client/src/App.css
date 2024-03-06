@@ -175,13 +175,11 @@ div.post div.image {
   justify-content: center;
 }
 
-
 div.post-page div.image img,
 div.post div.image img {
   /* object-fit: cover; */
   object-position: center center;
   /* width: 100%; */
-  
 }
 
 div.post-page a {
@@ -227,11 +225,83 @@ a svg {
   color: inherit;
 }
 
+/* ===================================== Mix Four Latesr */
+
+.ad-container,
+.news-item {
+  position: relative; /* Ensure the container is positioned relatively */
+  overflow: hidden; /* Hide overflow */
+}
+
+.ad-container img,
+.news-item img {
+  width: 100%;
+  height: auto;
+  max-height: 200px;
+  transition: transform 0.3s ease;
+}
+
+.news-item:hover img {
+  transform: scale(1.1);
+}
+
+.ad-container hr,
+.news-container hr {
+  border: none;
+  border-top: 1px solid #ccc;
+  margin: 10px 0;
+}
+
+.news-container {
+  gap: 10px;
+}
+
+.news-container h3 {
+  margin-bottom: 10px;
+}
+
+/* ===================================== Mix Four Latesr */
 .mix-four-container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
 }
+
+.mix-four-container a {
+  display: block;
+  text-decoration: none;
+}
+
+.mix-four-container .image {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.mix-four-container .image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.mix-four-container .image:hover img {
+  transform: scale(1.1);
+}
+
+.mix-four-container p {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #333;
+}
+
+.mix-four-container hr {
+  border: none;
+  border-top: 1px solid #ccc;
+  margin-top: 10px;
+}
+
+/* ======================================== */
 
 .taylor-four-container {
   display: grid;
@@ -290,4 +360,15 @@ a svg {
 .dashboardNav a {
   color: #888;
   text-decoration: none;
+}
+
+.four-news-heading {
+  font-size: 32px;
+  font-weight: bold;
+  color: #1e272e;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+  /* text-align: center; */
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }

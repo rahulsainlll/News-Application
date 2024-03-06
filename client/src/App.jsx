@@ -14,9 +14,8 @@ import Appbar from "./components/Appbar.jsx";
 import AdDashboard from "./pages/AdDashboard.jsx";
 import LatestPage from "./pages/LatestPage.jsx";
 
-
 // Axios
-axios.defaults.baseURL = "http://localhost:8000";
+axios.defaults.baseURL = "http://localhost:8000/";
 axios.defaults.withCredentials = true;
 
 function App() {
