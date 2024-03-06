@@ -11,36 +11,9 @@ export default function MixFour() {
 
   useEffect(() => {
     axios
-      .get("/news/type/India/1")
+      .get("/news/type/Latest/4")
       .then((response) => {
         setIndia(response.data);
-      })
-      .catch((error) => {
-        console.error("Error fetching data:", error);
-      });
-
-    axios
-      .get("/news/type/Tech/1")
-      .then((response) => {
-        setTech(response.data);
-      })
-      .catch((error) => {
-        console.error("Error fetching data:", error);
-      });
-
-    axios
-      .get("/news/type/Tech/1")
-      .then((response) => {
-        setTech(response.data);
-      })
-      .catch((error) => {
-        console.error("Error fetching data:", error);
-      });
-
-    axios
-      .get("/news/type/Tech/1")
-      .then((response) => {
-        setTech(response.data);
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
@@ -51,46 +24,7 @@ export default function MixFour() {
     <div>
       <h3 className="four-news-heading">Latest News</h3>
       <div className="mix-four-container">
-        {tech.map((post) => (
-          <Link to={`/news/${post._id}`} key={post._id}>
-            <div className="image">
-              <img
-                src={"http://localhost:8000/" + post.cover}
-                alt={post.title}
-              />
-            </div>
-            <p>{post.title}</p>
-            <hr />
-          </Link>
-        ))}
-
-        {tech.map((post) => (
-          <Link to={`/news/${post._id}`} key={post._id}>
-            <div className="image">
-              <img
-                src={"http://localhost:8000/" + post.cover}
-                alt={post.title}
-              />
-            </div>
-            <p>{post.title}</p>
-            <hr />
-          </Link>
-        ))}
-
         {india.map((post) => (
-          <Link to={`/news/${post._id}`} key={post._id}>
-            <div className="image">
-              <img
-                src={"http://localhost:8000/" + post.cover}
-                alt={post.title}
-              />
-            </div>
-            <p>{post.title}</p>
-            <hr />
-          </Link>
-        ))}
-
-        {tech.map((post) => (
           <Link to={`/news/${post._id}`} key={post._id}>
             <div className="image">
               <img

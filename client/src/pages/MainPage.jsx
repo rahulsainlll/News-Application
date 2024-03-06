@@ -4,14 +4,16 @@ import TrendingThree from "../components/TrendingThree";
 import BigThree from "../components/BigThree";
 import MixFour from "../components/MixFour";
 import TaylorFour from "../components/TaylorFour";
+import Carousel from "../components/Carousel";
 
 export default function IndexPage() {
   return (
     <div className="gridContainer">
       <div className="index-page">
         <div>
+          {/* <LatestOne /> */}
           <LatestOne />
-          <LatestOne />
+          <Carousel/>
         </div>
         <TrendingThree />
         <BigThree />
@@ -24,3 +26,4 @@ export default function IndexPage() {
     </div>
   );
 }
+

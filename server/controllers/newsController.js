@@ -120,7 +120,7 @@ const getNewsByType = async (req, res) => {
 
 // get all news endpoint
 const getNews = async (req, res) => {
-  const allNews = await newsModel.find().sort({ createdAt: -1 }).limit(10);
+  const allNews = await newsModel.find().sort({ createdAt: -1 });
 
   if (!allNews) {
     return res.json({

@@ -59,7 +59,9 @@ export default function PostPage() {
         />
       </div>
 
-      <BigThree />
+      <div>
+        <BigThree />
+      </div>
     </div>
   );
 }

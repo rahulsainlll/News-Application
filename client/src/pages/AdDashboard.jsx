@@ -1,9 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useEffect,useContext } from "react";
 import { toast } from "react-hot-toast";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { UserContext } from "../../context/userContext";
 
 export default function AdDashboard() {
+  const navigate = useNavigate();
+  const { user } = useContext(UserContext);
+
+   useEffect(() => {
+     if (!user) {
+       navigate("/");
+     }
+   }, []);
+
   const [type, setType] = useState("");
   const [link, setLink] = useState("");
   const [files, setFiles] = useState("");
@@ -35,6 +46,7 @@ export default function AdDashboard() {
         setType("");
         setLink("");
         setFiles("");
+        navigate("/");
         toast.success("Ad created successfully.");
       }
     } catch (error) {

@@ -1,11 +1,23 @@
-import { useState } from "react";
+import { useState, useContext,useEffect } from "react";
 import "react-quill/dist/quill.snow.css";
 import { toast } from "react-hot-toast";
 import axios from "axios";
 import Editor from "../components/Editor";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { UserContext } from "../../context/userContext";
 
 export default function Dashboard() {
+  const { user } = useContext(UserContext);
+  const navigate = useNavigate();
+  //  const history = useHistory();
+
+   useEffect(() => {
+      if (!user) {
+        navigate("/");
+      }
+   }, []);
+
+
   const [type, setType] = useState("");
   const [title, setTitle] = useState("");
   const [summary, setSummary] = useState("");
@@ -80,6 +92,8 @@ export default function Dashboard() {
         <option value="Latest">Latest</option>
         <option value="Trending">Trending</option>
         <option value="Taylor">Taylor</option>
+        <option value="India">India</option>
+        <option value="Tech">Tech</option>
         <option value="Entertainment">Entertainment</option>
       </select>
 

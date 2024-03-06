@@ -41,36 +41,6 @@ export default function Appbar() {
         >
           LATEST
         </Link>
-        {/* <Link
-          style={{
-            marginRight: "5%",
-            textDecoration: "none",
-            color: "#ffffff",
-          }}
-          to="/dashboard"
-        >
-          INDIA
-        </Link>
-        <Link
-          style={{
-            marginRight: "5%",
-            textDecoration: "none",
-            color: "#ffffff",
-          }}
-          to="/dashboard"
-        >
-          ENTERTAINMENT
-        </Link>
-        <Link
-          style={{
-            marginRight: "5%",
-            textDecoration: "none",
-            color: "#ffffff",
-          }}
-          to="/dashboard"
-        >
-          TRENDING
-        </Link> */}
 
         <Link
           style={{
@@ -78,7 +48,7 @@ export default function Appbar() {
             textDecoration: "none",
             color: "#ffffff",
           }}
-          to="/dashboard"
+          to="/trending"
         >
           TRENDING
         </Link>
@@ -89,7 +59,7 @@ export default function Appbar() {
             textDecoration: "none",
             color: "#ffffff",
           }}
-          to="/dashboard"
+          to="/taylor"
         >
           TAYLOR
         </Link>
@@ -100,9 +70,9 @@ export default function Appbar() {
             textDecoration: "none",
             color: "#ffffff",
           }}
-          to="/dashboard"
+          to="/more"
         >
-          MORE 
+          MORE
         </Link>
       </div>
 
@@ -110,7 +80,7 @@ export default function Appbar() {
       <div>
         <Link
           style={{
-            marginRight: "10%",
+            marginRight: "20%",
             fontSize: "0.9rem",
             textDecoration: "none",
             color: "#ffffff",
